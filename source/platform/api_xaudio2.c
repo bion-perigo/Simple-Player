@@ -130,10 +130,6 @@ struct sound_f *api_xaudio2_create_sound(struct wave_f *wave, unsigned short **d
 void api_xaudio2_destroy_sound(struct sound_f *sound){
     IXAudio2SourceVoice *source_voice = (IXAudio2SourceVoice*)sound->stream.audio_processor;
     source_voice->lpVtbl->DestroyVoice(source_voice);
-    // Error de Dump
-    sound->stream.audio_processor = NULL;
-    //free(sound->stream.audio_buffer->pAudioData);
-    //free(sound->stream.wave_format);
     free(sound);
 }
 
